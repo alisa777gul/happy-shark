@@ -25,7 +25,7 @@
 
 .text:hover,
 .text:focus {
-  color: #0b3d91;
+  color: #f063c1;
 }
 
 .logo {
@@ -41,7 +41,7 @@
 }
 .logo:hover {
   transform: scale(1.1);
-  border: 1px solid #0b3d91;
+  border: 1px solid #f063c1;
 }
 .logoImg {
   border-radius: 50%;
