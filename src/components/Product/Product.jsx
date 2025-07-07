@@ -3,6 +3,7 @@ import styles from "./Product.module.css";
 import firstImg from "../../assets/first.jpg";
 import secondImg from "../../assets/second.jpg";
 import thirdImg from "../../assets/third.jpg";
+import tg from "../../assets/telegram.svg";
 
 const images = [
   { src: firstImg, alt: "Піжама спереду" },
@@ -15,23 +16,51 @@ const fullText = `🦈 Комбінезон-плед у формі акули �
 export default function Product() {
   const [selected, setSelected] = useState(0);
   const [modalOpen, setModalOpen] = useState(false);
+  const [formOpen, setFormOpen] = useState(false);
+  const [formStatus, setFormStatus] = useState(""); // "" | "success" | "error"
+  const [formLoading, setFormLoading] = useState(false);
 
   useEffect(() => {
-    if (modalOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
-    }
+    document.body.style.overflow = modalOpen || formOpen ? "hidden" : "auto";
     return () => {
       document.body.style.overflow = "auto";
     };
-  }, [modalOpen]);
+  }, [modalOpen, formOpen]);
 
   const price = 1299;
   const oldPrice = 1699;
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setFormStatus("");
+    setFormLoading(true);
+
+    const formData = new FormData(e.target);
+
+    try {
+      const response = await fetch("https://formspree.io/f/mjkrqvaz", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+        },
+        body: formData,
+      });
+
+      if (response.ok) {
+        setFormStatus("success");
+        e.target.reset();
+      } else {
+        setFormStatus("error");
+      }
+    } catch {
+      setFormStatus("error");
+    } finally {
+      setFormLoading(false);
+    }
+  };
+
   return (
-    <section className={styles.product}>
+    <section className={styles.product} id="catalog">
       <div className={styles.tgthr}>
         <div className={styles.mainImageContainer}>
           <img
@@ -56,7 +85,6 @@ export default function Product() {
           ))}
         </div>
       </div>
-
       <div className={styles.charact}>
         <h2 className={styles.productTitle}>Піжама-Акула</h2>
         <div className={styles.availCont}>
@@ -72,26 +100,50 @@ export default function Product() {
             ))}
           </div>
         </div>
-
         <div className={styles.priceContainer}>
           <span className={styles.price}>{price} грн</span>
           <span className={styles.oldPrice}>{oldPrice} грн</span>
         </div>
-
         <p className={styles.productDescription}>
           🦈 Комбінезон-плед у формі акули — це поєднання веселого дизайну,
           комфорту та функціональності. Завдяки м’якому флісовому матеріалу та
           вільному крою він чудово підходить для відпочинку вдома, перегляду
           фільмів, вечірок з друзями або як незвичний образ для тематичних
           подій.
-          <button
-            className={styles.readMoreBtn}
-            onClick={() => setModalOpen(true)}
-            type="button"
-          >
-            Читати більше
-          </button>
-        </p>
+        </p>{" "}
+        <button
+          className={styles.readMoreBtn}
+          onClick={() => setModalOpen(true)}
+          type="button"
+        >
+          Читати більше
+        </button>
+        <a
+          href="https://t.me/shop777online"
+          target="_blank"
+          rel="noopener noreferrer"
+          className={styles.telegramBtn}
+        >
+          Замовляй у Telegram{" "}
+          <img
+            src={tg}
+            alt="Telegram"
+            className={styles.telegr}
+            width={24}
+            height={24}
+          />
+        </a>{" "}
+        <p className={styles.abo}>або</p>
+        <button
+          type="button"
+          className={styles.formBtn}
+          onClick={() => {
+            setFormOpen(true);
+            setFormStatus(""); // сбросить статус при открытии формы
+          }}
+        >
+          Залишити заявку
+        </button>
       </div>
 
       {modalOpen && (
@@ -110,6 +162,54 @@ export default function Product() {
               &times;
             </button>
             <p>{fullText}</p>
+          </div>
+        </div>
+      )}
+
+      {formOpen && (
+        <div className={styles.modalOverlay} onClick={() => setFormOpen(false)}>
+          <div
+            className={styles.formModalContent}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              className={styles.closeBtn}
+              onClick={() => setFormOpen(false)}
+            >
+              &times;
+            </button>
+            <h3>Залиште заявку</h3>
+            <form onSubmit={handleSubmit}>
+              <div className={styles.formField}>
+                <label htmlFor="name">Ім’я</label>
+                <input type="text" name="name" id="name" required />
+              </div>
+              <div className={styles.formField}>
+                <label htmlFor="contact">Email або Telegram</label>
+                <input type="text" name="contact" id="contact" required />
+              </div>
+              <div className={styles.formField}>
+                <label htmlFor="message">Коментар</label>
+                <textarea name="message" id="message" rows="3" />
+              </div>
+              <button
+                type="submit"
+                className={styles.telegramBtn}
+                disabled={formLoading}
+              >
+                {formLoading ? "Відправка..." : "Надіслати"}
+              </button>
+            </form>
+            {formStatus === "success" && (
+              <p style={{ color: "green", marginTop: "10px" }}>
+                Супер! Наш менеджер скоро зв'яжеться з вами.
+              </p>
+            )}
+            {formStatus === "error" && (
+              <p style={{ color: "red", marginTop: "10px" }}>
+                Сталася помилка. Спробуйте будь ласка пізніше.
+              </p>
+            )}
           </div>
         </div>
       )}

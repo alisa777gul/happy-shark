@@ -62,9 +62,7 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
-button:hover {
-  border-color: #ff64cb;
-}
+
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
@@ -91,4 +89,9 @@ section {
   .container {
     margin-bottom: 80px;
   }
+}
+button,
+a {
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s,
+    transform 0.3s ease;
 }

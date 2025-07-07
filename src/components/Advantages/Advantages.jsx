@@ -5,7 +5,7 @@ import design from "../../assets/design.svg";
 
 export default function Advantages() {
   return (
-    <section className={styles.advantages} id="advantages">
+    <section className={styles.advantages} id="about">
       <div className="container">
         {" "}
         <h2 className={styles.title}>Чому обирають саме нас?</h2>
