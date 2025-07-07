@@ -28,6 +28,8 @@
   color: #0b3d91;
   margin-bottom: 1rem;
   line-height: 1.2;
+  text-shadow: -1px -1px 0 #ffffff, 1px -1px 0 #ffffff, -1px 1px 0 #ffffff,
+    1px 1px 0 #ffffff;
 }
 
 .text {
@@ -35,6 +37,8 @@
   color: #333333;
   margin-bottom: 2rem;
   line-height: 1.5;
+  text-shadow: -1px -1px 0 #ffffff, 1px -1px 0 #ffffff, -1px 1px 0 #ffffff,
+    1px 1px 0 #ffffff;
 }
 
 .link {

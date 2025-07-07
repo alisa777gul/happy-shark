@@ -8,7 +8,7 @@ export default function Advantages() {
     <section className={styles.advantages} id="advantages">
       <div className="container">
         {" "}
-        <h2 className={styles.title}>Чому обирають нас?</h2>
+        <h2 className={styles.title}>Чому обирають саме нас?</h2>
         <ul className={styles.list}>
           <li className={styles.item}>
             {" "}

@@ -9,6 +9,10 @@
   width: 100%;
   padding-inline: 24px;
   padding-block: 12px;
+  position: relative;
+}
+.shark {
+  display: none;
 }
 
 .navigation {
@@ -50,9 +54,26 @@
   object-fit: cover;
 }
 
-.name {
-  font-size: 1.5rem;
-  font-weight: 600;
-  font-style: italic;
-  color: #ffffff;
+.tgthr {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+@media (min-width: 768px) {
+  .shark {
+    display: block;
+
+    font-size: 32px;
+    font-weight: 500;
+    text-shadow: -1px -1px 0 #006eff, 1px -1px 0 #006eff, -1px 1px 0 #006eff,
+      1px 1px 0 #006eff;
+    transition: text-shadow 0.3s ease, transform 0.3s ease;
+  }
+
+  .shark:hover,
+  .shark:focus {
+    text-shadow: -1px -1px 0 #f063c1, 1px -1px 0 #f063c1, -1px 1px 0 #f063c1,
+      1px 1px 0 #f063c1;
+  }
 }
