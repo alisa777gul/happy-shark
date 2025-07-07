@@ -160,6 +160,7 @@
   border: none;
   cursor: pointer;
   font-weight: bold;
+  color: #0b3d91;
 }
 
 @media (min-width: 768px) {
@@ -226,6 +227,7 @@
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.3s ease;
   margin: 0 auto;
+  color: #0b3d91;
 }
 
 .formBtn:hover {

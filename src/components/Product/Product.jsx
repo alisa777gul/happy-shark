@@ -185,7 +185,7 @@ export default function Product() {
                 <input type="text" name="name" id="name" required />
               </div>
               <div className={styles.formField}>
-                <label htmlFor="contact">Email або Telegram</label>
+                <label htmlFor="contact">Номер телефону або Telegram</label>
                 <input type="text" name="contact" id="contact" required />
               </div>
               <div className={styles.formField}>
@@ -194,7 +194,7 @@ export default function Product() {
               </div>
               <button
                 type="submit"
-                className={styles.telegramBtn}
+                className={styles.formBtn}
                 disabled={formLoading}
               >
                 {formLoading ? "Відправка..." : "Надіслати"}
