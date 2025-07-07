@@ -5,7 +5,7 @@ export default function Hero() {
   return (
     <section className={styles.hero}>
       <div className={styles.content}>
-        <h1 className={styles.title}>Піжама-Акула — твій комфорт вдома</h1>
+        <h1 className={styles.title}>Піжама-Акула - твій комфорт вдома</h1>
         <p className={styles.text}>
           М’яка, тепла та неймовірно зручна піжама в формі акули — ідеальний
           вибір для відпочинку вдома чи подарунка близьким.
