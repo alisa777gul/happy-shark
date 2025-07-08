@@ -90,7 +90,7 @@ export default function Product() {
         <div className={styles.availCont}>
           <p className={styles.avail}>В наявності</p>
           <span className={styles.reviewCount}>⋆</span>
-          <span className={styles.reviewCount}>500+ купило</span>
+          <span className={styles.reviewCount}>199+ купило</span>
           <span className={styles.reviewCount}>⋆</span>
           <div className={styles.rating}>
             {[...Array(5)].map((_, i) => (
