@@ -12,6 +12,8 @@
   font-size: 2rem;
   margin-bottom: 1rem;
   color: #0b3d91;
+  text-shadow: -1px -1px 0 #ffffff, 1px -1px 0 #ffffff, -1px 1px 0 #ffffff,
+    1px 1px 0 #ffffff;
 }
 
 .mainImageContainer {
@@ -209,7 +211,7 @@
   transition: background-color 0.3s ease;
   text-align: center;
   margin: 0 auto;
-  margin-bottom: 16px;
+  margin-bottom: 8px;
   display: flex;
   justify-content: center;
   align-content: center;
@@ -223,7 +225,7 @@
 
 .abo {
   margin: 0 auto;
-  margin-bottom: 16px;
+  margin-bottom: 8px;
 }
 .formBtn {
   padding: 12px 24px;

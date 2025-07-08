@@ -45,7 +45,7 @@ const reviews = [
 
 export default function Reviews() {
   return (
-    <section className={styles.section}>
+    <section className={styles.section} id="reviews">
       <h2 className={styles.title}>Відгуки покупців</h2>
       <div className={styles.slider}>
         <Swiper

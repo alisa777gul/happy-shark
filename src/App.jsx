@@ -4,6 +4,7 @@ import Hero from "./components/Hero/Hero.jsx";
 import Advantages from "./components/Advantages/Advantages.jsx";
 import Product from "./components/Product/Product.jsx";
 import Reviews from "./components/Reviews/Reviews.jsx";
+import Contact from "./components/Contact/Contact.jsx";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Advantages />
       <Product />
       <Reviews />
+      <Contact />
     </>
   );
 }
