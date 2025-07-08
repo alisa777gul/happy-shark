@@ -13,9 +13,11 @@
 .list {
   list-style: none;
   padding: 0;
-  margin: 0;
+  margin: 0 auto;
   display: grid;
+
   gap: 24px;
+  max-width: 500px;
 }
 
 .item {
@@ -46,10 +48,10 @@
 }
 
 @media (min-width: 768px) {
-  .list {
+  /* .list {
     grid-template-columns: repeat(3, 1fr);
     gap: 32px;
-  }
+  } */
 
   .title {
     font-size: 32px;
@@ -59,5 +61,13 @@
   }
   .text {
     font-size: 16px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .list {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    max-width: none;
   }
 }
