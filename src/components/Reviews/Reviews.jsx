@@ -3,6 +3,7 @@ import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import styles from "./Reviews.module.css";
+import { Autoplay } from "swiper/modules";
 
 const reviews = [
   {
@@ -49,6 +50,11 @@ export default function Reviews() {
       <h2 className={styles.title}>Відгуки покупців</h2>
       <div className={styles.slider}>
         <Swiper
+          modules={[Autoplay]}
+          autoplay={{
+            delay: 3000,
+            disableOnInteraction: false,
+          }}
           loop={true}
           spaceBetween={20}
           slidesPerView={1}
