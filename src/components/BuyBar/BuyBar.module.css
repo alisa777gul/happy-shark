@@ -9,7 +9,7 @@
   align-items: center;
   padding: 15px;
   box-shadow: 0 -4px 10px rgba(13, 59, 102, 0.8);
-  z-index: 1000;
+  z-index: 999;
   color: #e0f0ff; /* светло-голубой текст */
 }
 

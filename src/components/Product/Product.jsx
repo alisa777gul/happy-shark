@@ -4,6 +4,7 @@ import firstImg from "../../assets/first.jpg";
 import secondImg from "../../assets/second.jpg";
 import thirdImg from "../../assets/third.jpg";
 import tg from "../../assets/telegram.svg";
+import size from "../../assets/size.svg";
 
 const images = [
   { src: firstImg, alt: "Піжама спереду" },
@@ -17,15 +18,17 @@ export default function Product() {
   const [selected, setSelected] = useState(0);
   const [modalOpen, setModalOpen] = useState(false);
   const [formOpen, setFormOpen] = useState(false);
+  const [sizeModalOpen, setSizeModalOpen] = useState(false);
   const [formStatus, setFormStatus] = useState(""); // "" | "success" | "error"
   const [formLoading, setFormLoading] = useState(false);
 
   useEffect(() => {
-    document.body.style.overflow = modalOpen || formOpen ? "hidden" : "auto";
+    document.body.style.overflow =
+      modalOpen || formOpen || sizeModalOpen ? "hidden" : "auto";
     return () => {
       document.body.style.overflow = "auto";
     };
-  }, [modalOpen, formOpen]);
+  }, [modalOpen, formOpen, sizeModalOpen]);
 
   const price = 1299;
   const oldPrice = 1799;
@@ -101,8 +104,20 @@ export default function Product() {
           </div>
         </div>
         <div className={styles.priceContainer}>
-          <span className={styles.price}>{price} грн</span>
-          <span className={styles.oldPrice}>{oldPrice} грн</span>
+          <span className={styles.price}>{price} грн </span>
+          <span className={styles.oldPrice}>{oldPrice} грн</span>{" "}
+          <span
+            className={styles.sizeBtn}
+            onClick={() => setSizeModalOpen(true)}
+            role="button"
+            tabIndex={0}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") setSizeModalOpen(true);
+            }}
+            aria-label="Відкрити розмірну сітку"
+          >
+            <img src={size} alt="Sizing" width={24} height={24} />
+          </span>
         </div>
         <p className={styles.productDescription}>
           🦈 Комбінезон-плед у формі акули — це поєднання веселого дизайну,
@@ -146,6 +161,7 @@ export default function Product() {
         </button>
       </div>
 
+      {/* Модалка с полным описанием */}
       {modalOpen && (
         <div
           className={styles.modalOverlay}
@@ -158,6 +174,7 @@ export default function Product() {
             <button
               className={styles.closeBtn}
               onClick={() => setModalOpen(false)}
+              aria-label="Закрити модалку з описом"
             >
               &times;
             </button>
@@ -166,6 +183,7 @@ export default function Product() {
         </div>
       )}
 
+      {/* Модалка с формой заявки */}
       {formOpen && (
         <div className={styles.modalOverlay} onClick={() => setFormOpen(false)}>
           <div
@@ -175,6 +193,7 @@ export default function Product() {
             <button
               className={styles.closeBtn}
               onClick={() => setFormOpen(false)}
+              aria-label="Закрити форму заявки"
             >
               &times;
             </button>
@@ -210,6 +229,42 @@ export default function Product() {
                 Сталася помилка. Спробуйте будь ласка пізніше.
               </p>
             )}
+          </div>
+        </div>
+      )}
+
+      {/* Модалка с размерной сеткой */}
+      {sizeModalOpen && (
+        <div
+          className={styles.modalOverlay}
+          onClick={() => setSizeModalOpen(false)}
+        >
+          <div
+            className={styles.modalContent}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              className={styles.closeBtn}
+              onClick={() => setSizeModalOpen(false)}
+              aria-label="Закрити модалку розмірної сітки"
+            >
+              &times;
+            </button>
+            <h3 className={styles.sizeTitle}>📏 Обери свій розмір:</h3>
+            <ul className={styles.sizeList}>
+              <li>
+                <strong>M</strong> — до 130 см
+              </li>
+              <li>
+                <strong>L</strong> — 130–150 см
+              </li>
+              <li>
+                <strong>XL</strong> — 150–170 см
+              </li>
+              <li>
+                <strong>XXL</strong> — від 170 см
+              </li>
+            </ul>
           </div>
         </div>
       )}
