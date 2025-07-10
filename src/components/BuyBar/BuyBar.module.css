@@ -3,14 +3,20 @@
   bottom: 0;
   left: 0;
   width: 100%;
-  background-color: #0d3b66; /* насыщенный тёмно-синий фон */
+  background-color: #0a447a; /* насыщенный тёмно-синий фон */
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 30px;
+  padding: 15px;
   box-shadow: 0 -4px 10px rgba(13, 59, 102, 0.8);
   z-index: 1000;
   color: #e0f0ff; /* светло-голубой текст */
+}
+
+@media (min-width: 768px) {
+  .buyBar {
+    padding: 15px 30px;
+  }
 }
 
 .price {
@@ -35,8 +41,8 @@
   cursor: pointer;
   font-size: 18px;
   font-weight: 600;
-  transition: background-color 0.3s ease;
-  box-shadow: 0 4px 10px rgba(61, 165, 217, 0.6);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 10px rgba(143, 179, 197, 0.6);
   outline: none;
 }
 
