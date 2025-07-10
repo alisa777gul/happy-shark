@@ -4,6 +4,11 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+  padding-bottom: 85px;
+}
+
 :root {
   font-family: "Tektur", sans-serif;
   font-optical-sizing: auto;

@@ -6,6 +6,7 @@ import Product from "./components/Product/Product.jsx";
 import Reviews from "./components/Reviews/Reviews.jsx";
 import Contact from "./components/Contact/Contact.jsx";
 import Footer from "./components/Footer/Footer.jsx";
+import BuyBar from "./components/BuyBar/BuyBar.jsx";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <Product />
       <Reviews />
       <Contact /> <Footer />
+      <BuyBar />
     </>
   );
 }

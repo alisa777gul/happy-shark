@@ -42,7 +42,7 @@ export default function Contact() {
   };
 
   return (
-    <section className={styles.container}>
+    <section className={styles.container} id="contact">
       <div className={styles.formSection}>
         {" "}
         {formStatus === "success" && (

@@ -28,7 +28,7 @@ export default function Product() {
   }, [modalOpen, formOpen]);
 
   const price = 1299;
-  const oldPrice = 1699;
+  const oldPrice = 1799;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
